@@ -1,29 +1,29 @@
-# Fetch influencers' contacts with natural language query
+# MCP for Influencer Data: Fetch Influencers' Contacts with Natural Language Query
 
-Embed realtime retrieval of 10+M influencers' contacts inside your AI agents. 
+Embed real-time retrieval of 10M+ influencer contacts inside your AI agents for influencer marketing, outreach, and automation.
 
 You can select contacts by:
 - geo
 - category
-- keywords, description and tags
-- amount of follower, views and 20+ other parameters
+- keywords, descriptions, and tags
+- number of followers, views, and 20+ other parameters
 - content of posts
 
 Available options:
-- limit the required amount. Maximum amount of contacts: 500
-- request for new contacts only
-- link on .csv file with detailed information on all selected contacts (valid 24 hours)
+- limit the requested amount (maximum 500 contacts)
+- request only new contacts
+- receive a link to a .csv file with detailed information on all selected contacts (valid for 24 hours)
 
 Examples of queries:
 - "Give me 50 AI influencers from Ohio"
-- "Give me new 10 glamping influencers from Europe"
-- "Give me new 20 pet influencers with posts about dog shampoo, from Asia"
+- "Give me 10 new glamping influencers from Europe"
+- "Give me 20 new pet influencers from Asia with posts about dog shampoo"
 
-You can use emails of retrieved contacts immediately in E-mail campaigns and other marketing activities.
+You can use emails of retrieved contacts immediately in email campaigns and other marketing activities.
 
 ---
 
-## Step 1: Register at [Influbalance.com](https://app.influbalance.org/)
+## Step 1: Register at [Influbalance.com](https://influbalance.com)
 
 Get your Influbalance API key and select a billing plan. 100 contacts are included in the trial period.
 
@@ -51,7 +51,7 @@ Get your Influbalance API key and select a billing plan. 100 contacts are includ
       "effort": "none"
     },
     "tool_choice": "auto",
-    "instructions": "You are an AI consultant for the Influbalance.org. Use the get_contact MCP tool to retrieve contacts based on the input prompt. Print the response as described in the followup instruction of the MCP tool response.",
+    "instructions": "You are an AI consultant for Influbalance.org. Use the get_contact MCP tool to retrieve contacts based on the input prompt. Print the response as described in the MCP tool response.",
     "service_tier": "default",
     "max_tool_calls": 1,
     "max_output_tokens": 16384    
@@ -63,7 +63,7 @@ Get your Influbalance API key and select a billing plan. 100 contacts are includ
     "Authorization": "Bearer <YOUR-API-KEY>"
   }
 }
-```
+````
 
 ### Request for structured output
 
@@ -85,7 +85,7 @@ Get your Influbalance API key and select a billing plan. 100 contacts are includ
       "effort": "none"
     },
     "tool_choice": "auto",
-    "instructions": "You are an AI consultant for the Influbalance.org. Use the get_contact MCP tool to retrieve contacts based on the input prompt. Send the response as the structured output based on the MCP tool response.",
+    "instructions": "You are an AI consultant for Influbalance.org. Use the get_contact MCP tool to retrieve contacts based on the input prompt. Return structured output based on the MCP tool response.",
     "service_tier": "default",
     "max_tool_calls": 1,
     "max_output_tokens": 16384,
@@ -122,11 +122,11 @@ Get your Influbalance API key and select a billing plan. 100 contacts are includ
                 },
                 "additionalProperties": false
               },
-              "description": "extract array of contacts from get_contact MCP tool response."
+              "description": "Array of contacts returned by the get_contact MCP tool."
             },
             "link": {
               "type": "string",
-              "description": "link to the .csv file with the detailed informations on selected contacts from get_contact MCP tool response."
+              "description": "Link to the .csv file with detailed information on selected contacts."
             }
           },
           "additionalProperties": false
@@ -145,58 +145,47 @@ Get your Influbalance API key and select a billing plan. 100 contacts are includ
 
 ### Notes
 
-> Change "input", "model" and Influbalance API key in the "server_url" as you like. Do not forget to set your LLM API key.
-> Make sure tool calling is **not disabled** in your API request settings. Some SDKs or wrappers restrict tool use by default.
+> Change "input", "model", and the Influbalance API key in "server_url" as needed. Make sure to set your LLM API key.
+> Ensure tool calling is **enabled** in your API request settings. Some SDKs restrict tool usage by default.
 
 Full description of the **/responses** call:
-- [ChatGPT](https://developers.openai.com/api/reference/resources/responses/methods/create)
-- [Claude] (https://platform.claude.com/docs/en/api/openai-sdk)
+
+* [https://developers.openai.com/api/reference/resources/responses/methods/create](https://developers.openai.com/api/reference/resources/responses/methods/create)
+* [https://platform.claude.com/docs/en/api/openai-sdk](https://platform.claude.com/docs/en/api/openai-sdk)
 
 ---
 
-## Step 3: Process response
+## Step 3: Process Response
 
-Use contacts in your workflow as you like
+Use the retrieved contacts in your workflow as needed.
 
 ---
 
 ## How It Works
 
 ```
-User/Agent sends a message what contacts to retrieve
+User/Agent sends a request describing the desired influencers
         ↓
-Your AI Agent calls LLM API, with the prompt
+Your AI agent calls the LLM API with the prompt
         ↓
-LLM calls "get_contact" tools via Influbalance MCP server
+LLM calls the "get_contact" tool via Influbalance MCP server
         ↓
-MCP returns relevant contacts, with link to .csv file
+MCP returns relevant contacts + CSV link
         ↓
-LLM prepares structured output
+LLM formats the response
         ↓
-Your Agent use the selected contacts in its workflow
+Your agent uses the contacts in its workflow
 ```
 
 ---
 
 ## Requirements
 
-- Your LLM API must support **MCP (Model Context Protocol)** or tool calling (use /responses API)
-- Tool calling must be **enabled** in your API configuration
+* Your LLM API must support **MCP (Model Context Protocol)** or tool calling (/responses API)
+* Tool calling must be **enabled** in your API configuration
 
 ---
 
-## Example of plain text response
+## Keywords
 
-```json
-
-
-```
-
----
-
-## Example of structured output response
-
-```json
-
-
-```
+influencer marketing API, influencer database, creator discovery, influencer outreach, AI influencer search, MCP influencer data, influencer contacts API, social media marketing tools
